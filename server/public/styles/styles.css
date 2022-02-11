@@ -1,0 +1,16 @@
+h1{
+    color:brown;
+    font-size: xx-large
+}
+table{
+    align-items: center;
+}
+th, td {
+    border: 1px solid black;
+    background-color: whitesmoke;
+}
+
+body {
+
+    background-color: seagreen;
+}
