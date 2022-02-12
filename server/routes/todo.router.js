@@ -49,6 +49,24 @@ router.delete('/:id', (req, res) => {
             res.sendStatus(500);
         })
   })
+  
+router.put('/:id', (req, res) => {
+    let reqIdUpdate = req.params.id;
+    let queryText = `UPDATE "tasks" SET "status" = $1 WHERE "id" = $2;`;
+    const values = [req.body.check, reqIdUpdate]
+
+    pool.query(queryText, values)
+    .then((result) => {
+     res.sendStatus(200);
+    })
+    .catch((err) => {
+     console.log(err);
+     res.sendStatus(500);
+    })
+  })
+    
+
+
 
 
 module.exports = router;
