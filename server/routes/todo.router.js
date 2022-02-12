@@ -24,7 +24,7 @@ router.post ('/', (req, res)=>{
 
 router.get ('/', (req, res)=>{ 
     console.log('get hit');
-    let queryText = 'SELECT * FROM "tasks";';
+    let queryText = 'SELECT * FROM "tasks" ORDER BY "id" ;';
     pool.query(queryText)
       .then((result) => {
           res.send(result.rows);
@@ -53,7 +53,7 @@ router.delete('/:id', (req, res) => {
 router.put('/:id', (req, res) => {
     let reqIdUpdate = req.params.id;
     let queryText = `UPDATE "tasks" SET "status" = $1 WHERE "id" = $2;`;
-    const values = [req.body.check, reqIdUpdate]
+    const values = [req.body.newCheck, reqIdUpdate]
 
     pool.query(queryText, values)
     .then((result) => {

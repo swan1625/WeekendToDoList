@@ -49,9 +49,9 @@ function renderTasks(list) {
     $('#task-table-body').empty();
     for(let task of list) {
         $('#task-table-body').append( `
-            <tr data-id = ${task.id}>
+            <tr data-id = ${task.id} data-status= ${task.status}>
                 <td>${task.task}</td>
-                <td class="complete">${task.status}</td>
+                <td>${task.status}</td>
                 <td><button class="complete-btn" data-id=${task.id}>Mark complete</button></td>
                 <td><button class="delete-btn" data-id=${task.id} >Delete task</button></td>
             </tr>` );
@@ -80,7 +80,7 @@ function completeTask() {
           method: 'PUT',
           url: `/todolist/${taskId}`,
           data: {
-            check: !check
+            newCheck: !check
           }
         }).then(function(response){
             console.log(response);
