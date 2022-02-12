@@ -1,11 +1,18 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser')
-const PORT = process.env.PORT || 5000;
-
-const koalaRouter = require('./routes/koala.router')
-
+const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
+// const router = require('./routes/todo.')
+app.use (express.static ('server/public'))
+
+const PORT = 5000;
+
+
+
+
+
+
+// app.use('/toDoList', router)
 
 
 
@@ -15,11 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-
-
-
-
-
+// -------------------------------------------------
 app.listen(PORT, () => {
     console.log('listening on port', PORT);
   });
