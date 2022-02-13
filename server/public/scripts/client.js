@@ -5,7 +5,16 @@ function onReady() {
     $('#submit-task').on('click', handleSubmit);
     $('#task-table-body').on('click', '.delete-btn', deleteTask);
     $('#task-table-body').on('click', '.complete-btn', completeTask);
+    // $('#task-table-body').on('click', '.complete-btn', toggleColor)
 }
+
+// function toggleColor() {
+    
+// }
+
+
+
+
 
 function handleSubmit() {
     console.log('is this working?');
@@ -40,7 +49,7 @@ function getTask() {
         renderTasks(response);
 console.log('back from get', response);
     }).catch(function (error) {
-        console.log('error in artist get', error);
+        console.log('error in task get', error);
         alert('trouble getting items');
     });
 }
@@ -48,14 +57,35 @@ console.log('back from get', response);
 function renderTasks(list) {
     $('#task-table-body').empty();
     for(let task of list) {
+       
+        if (task.status === true ){
         $('#task-table-body').append( `
-            <tr data-id = ${task.id} data-status= ${task.status}>
+            <tr class="done" data-id = ${task.id} data-status= ${task.status}>
+          
                 <td>${task.task}</td>
-                <td>${task.status}</td>
-                <td><button class="complete-btn" data-id=${task.id}>Mark complete</button></td>
+                <td>finished, good job! </td>
+                <td><button type="button" class="complete-btn" data-id=${task.id}> Mark complete</button></td>
                 <td><button class="delete-btn" data-id=${task.id} >Delete task</button></td>
+           
             </tr>` );
+        }else {
+            $('#task-table-body').append( `
+            <tr class="notdone" data-id = ${task.id} data-status= ${task.status}>
+          
+                <td>${task.task}</td>
+                <td>not done =[</td>
+                <td><button type="button" class="complete-btn" data-id=${task.id}> Mark complete</button></td>
+                <td><button class="delete-btn" data-id=${task.id} >Delete task</button></td>
+           
+            </tr>` );
+
+
+
+
+
+        }
     }}
+
 
 function deleteTask() {
         let taskId = $(this).data().id;
@@ -85,7 +115,13 @@ function completeTask() {
         }).then(function(response){
             console.log(response);
             getTask();
+            toggleColor();
         }).catch(function(err){
           console.log('Error client PUT',err);
         })
       }
+function toggleColor() { 
+    console.log('in toggle colo');
+    let test = $(this).closest('tr');
+    test.toggleClass("highlight")
+}
