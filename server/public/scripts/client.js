@@ -22,6 +22,7 @@ function handleSubmit() {
         task: $('#add-task').val(),
         status: false
     }
+    $('#add-task').val('');
     console.log('add', toDoSend);
     $.ajax({
         method: 'POST',
@@ -62,10 +63,10 @@ function renderTasks(list) {
         $('#task-table-body').append( `
             <tr class="done" data-id = ${task.id} data-status= ${task.status}>
           
-                <td>${task.task}</td>
+                <td><del>${task.task}</del></td>
                 <td>finished, good job! </td>
-                <td><button type="button" class="complete-btn" data-id=${task.id}> Mark complete</button></td>
-                <td><button class="delete-btn" data-id=${task.id} >Delete task</button></td>
+                <td><button type="button" class="complete-btn btn btn-outline-success"" data-id=${task.id}> Mark complete</button></td>
+                <td><button class="delete-btn btn btn-danger" data-id=${task.id} >Delete task</button></td>
            
             </tr>` );
         }else {
@@ -74,8 +75,8 @@ function renderTasks(list) {
           
                 <td>${task.task}</td>
                 <td>not done =[</td>
-                <td><button type="button" class="complete-btn" data-id=${task.id}> Mark complete</button></td>
-                <td><button class="delete-btn" data-id=${task.id} >Delete task</button></td>
+                <td><button type="button" class="complete-btn btn btn-success" data-id=${task.id}> Mark complete</button></td>
+                <td><button class="delete-btn btn btn-danger" data-id=${task.id} >Delete task</button></td>
            
             </tr>` );
 

@@ -7,19 +7,32 @@ table{
 }
 
 .done {
-    background-color: rgb(87, 13, 44);
+    background-color: rgb(241, 244, 201);
+    /* text-decoration: line-through; */
    
    }
 
 body {
-    background-color: rgb(133, 167, 148);
+    background-color: rgb(17, 19, 18);
 }
-.table{
-    background-color: rgb(169, 162, 211);
+#table{
+    
+    background-color: rgb(180, 177, 198);
     border-collapse: collapse;
-    margin: 25px 0;
+    margin: 0 auto;
+    width: 80%;
     font-size: 0.9em;
     font-family: sans-serif;
-    min-width: 400px;
+    /* min-width: 400px; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+  table tr:nth-child(even){
+    background-color: rgb(99, 93, 138);
+}
+.table-hover > tbody > tr:hover {
+    background-color: #faf4c0;
+  }
+thead{
+    background-color: rgb(99, 93, 138)
 }
