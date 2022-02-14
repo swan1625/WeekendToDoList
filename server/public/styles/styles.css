@@ -1,20 +1,33 @@
 h1{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     color:brown;
-    font-size: xx-large
+    font-size: 56px;
 }
+
 table{
+
     align-items: center;
 }
 
-.done {
-    background-color: rgb(241, 244, 201);
-    /* text-decoration: line-through; */
-   
-   }
-
 body {
-    background-color: rgb(17, 19, 18);
+
+    background-color: black;
 }
+
+.done {
+    
+    background-color: rgb(241, 244, 201);
+    
+ }
+
+#task-table-body{
+ 
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    color: #070101;
+    font-size: 14pt;
+    background-color: #FAFAFA;
+}
+
 #table{
     
     background-color: rgb(180, 177, 198);
@@ -23,16 +36,17 @@ body {
     width: 80%;
     font-size: 0.9em;
     font-family: sans-serif;
-    /* min-width: 400px; */
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
   table tr:nth-child(even){
-    background-color: rgb(99, 93, 138);
+    background-color: #635d8a;
 }
+
 .table-hover > tbody > tr:hover {
     background-color: #faf4c0;
   }
+
 thead{
     background-color: rgb(99, 93, 138)
 }
