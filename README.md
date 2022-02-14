@@ -30,7 +30,7 @@ A simple to do list is often overlooked, even more so one with an active databas
 -javascript
 -bootstrap
 -SQL
--
+
 ## Acknowledgement
 Thanks to Prime, my peers, and my family and friends for supporting me through this coding journey 
 
